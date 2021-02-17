@@ -1,9 +1,9 @@
 const Todo = require('../models/todoModel');
 
-exports.getTodos = (req, res) => {
+exports.getTodos = async (req, res) => {
   try {
-    const todos = Todo.find({});
-    res.sendStatus(200);
+    const todos = await Todo.find({});
+    res.status(200);
     res.send(todos)
   } catch (err) {
     console.log(err)
@@ -11,9 +11,9 @@ exports.getTodos = (req, res) => {
   }
 }
 
-exports.postTodo = (req, res) => {
+exports.postTodo = async (req, res) => {
   try {
-    Todo.create(req.body);
+    await Todo.create(req.body);
     res.sendStatus(201);
     res.send();
   } catch (err) {
