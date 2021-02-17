@@ -1,15 +1,18 @@
 const express = require ('express');
 const app = new express();
 const cors = require('cors');
+const mongoose = require('mongoose');
 
-//TODO: make sure to link this properly - const router = require('./router')
+const router = require('./router')
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-//TODO: app.use(router);
+app.use(router);
 
 app.listen(PORT, () => {
+  mongoose.connect(`mongodb://localhost:27017/angular-mongoose-todo`,{useNewUrlParser: true, useUnifiedTopology: true})
+  console.log(`Connected to db 🗄`)
   console.log(`Server running at http://localhost:${PORT}🚀🧨`)
 });
 
