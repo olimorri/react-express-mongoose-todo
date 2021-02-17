@@ -38,4 +38,16 @@ Import newModel
 
 export functions that we want to use in the routing logic.
 
-Remember that with koa we use ctx as the args and check if functions need to be async await - especially if referencing a database.
+Remember that with express we use (req,res) as the args. These functions need to be async await.
+
+## Create router.js
+
+Import express and use .Router(). Import controllers using spread.
+
+Sort out routing logic and end of URL. Export router.
+
+## index.js
+
+import mongoose, make sure router is imported and declared.
+
+Add mongoose connect within the app.listen and use a console.log to show you're connected.
